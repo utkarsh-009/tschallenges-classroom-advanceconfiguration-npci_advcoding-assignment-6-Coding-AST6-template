@@ -48,5 +48,7 @@ jobs:
       uses: classroom-resources/autograding-grading-reporter@v1
       env:
         TEST-EXERCISE-1_RESULTS: "${{steps.test-exercise-1.outputs.result}}"
+        TEST-EXERCISE-2_RESULTS: "${{steps.test-exercise-2.outputs.result}}"
+        TEST-EXERCISE-3_RESULTS: "${{steps.test-exercise-3.outputs.result}}"
       with:
-        runners: test-exercise-1
+        runners: test-exercise-1, test-exercise-2, test-exercise-3
