@@ -22,8 +22,10 @@ jobs:
       uses: classroom-resources/autograding-command-grader@v1
       with:
         test-name: Test Exercise-1
-        setup-command: wget -O test_ex1.sh https://drive.google.com/uc?id=1HMmdSdFfMyutYd_CdvhRnvP52AzgW278
-        command: chmod +x test_ex1.sh && ./test_ex1.sh
+        setup-command: |
+          wget -O test_ex1.sh https://drive.google.com/uc?id=1HMmdSdFfMyutYd_CdvhRnvP52AzgW278 
+          chmod +x test_ex1.sh
+        command: ./test_ex1.sh
         timeout: 5
         max-score: 2
     - name: Autograding Reporter
