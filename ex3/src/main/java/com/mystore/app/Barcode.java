@@ -1,29 +1,20 @@
 package com.mystore.app;
 
-class Barcode {
+import org.springframework.stereotype.Component;
+
+@Component
+public class Barcode {
+    private String code;
 
     public Barcode() {
-        System.out.println("In Barcode constructor");
+        this.code = "BAR123"; // Default barcode
     }
-    
-    public String createBarcode(Product p) {
-        String bcode = "|";
-        int hashcode = p.getId() + p.getName().hashCode();
 
-        String numberStr = String.valueOf(hashcode);  // Convert number to a string
+    public String getCode() {
+        return code;
+    }
 
-        // Loop through each character in the string
-        for (char digitChar : numberStr.toCharArray()) {
-            int digit = Character.getNumericValue(digitChar);  // Convert char to int
-            
-            // Check if the digit is even or odd
-            if (digit % 2 == 0) {
-                bcode = bcode + "❚";
-            } else {
-                bcode = bcode + "|";
-            }
-        }
-
-        return bcode + "|";
+    public void setCode(String code) {
+        this.code = code;
     }
 }
